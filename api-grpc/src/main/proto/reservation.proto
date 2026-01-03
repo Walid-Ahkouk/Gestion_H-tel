@@ -1,0 +1,31 @@
+syntax = "proto3";
+package com.example.hotel.grpc;
+option java_multiple_files = true;
+option java_package = "com.example.hotel.grpc.proto";
+
+service ReservationService {
+  rpc createReservation (CreateReservationRequest) returns (ReservationResponse);
+  rpc getReservation (GetReservationRequest) returns (ReservationResponse);
+}
+
+message CreateReservationRequest {
+  string userId = 1;
+  string hotelId = 2;
+  string checkInDate = 3;
+  string checkOutDate = 4;
+  string preferences = 5;
+}
+
+message GetReservationRequest {
+  int64 id = 1;
+}
+
+message ReservationResponse {
+  int64 id = 1;
+  string userId = 2;
+  string hotelId = 3;
+  string checkInDate = 4;
+  string checkOutDate = 5;
+  string status = 6;
+  string preferences = 7;
+}

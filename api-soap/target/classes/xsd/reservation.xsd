@@ -1,0 +1,51 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/soap" elementFormDefault="qualified">
+    
+    <!-- GET -->
+    <xs:element name="GetReservationRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetReservationResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="reservation" type="tns:SoapReservation"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- CREATE -->
+    <xs:element name="CreateReservationRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="userId" type="xs:string"/>
+                <xs:element name="hotelId" type="xs:string"/>
+                <xs:element name="checkInDate" type="xs:string"/>
+                <xs:element name="checkOutDate" type="xs:string"/>
+                <xs:element name="preferences" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="CreateReservationResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="reservation" type="tns:SoapReservation"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Common Type -->
+    <xs:complexType name="SoapReservation">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="userId" type="xs:string"/>
+            <xs:element name="hotelId" type="xs:string"/>
+            <xs:element name="status" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

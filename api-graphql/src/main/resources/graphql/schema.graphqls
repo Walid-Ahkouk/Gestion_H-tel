@@ -1,0 +1,24 @@
+type Query {
+    allReservations: [Reservation]
+    reservationById(id: ID): Reservation
+}
+
+type Mutation {
+    createReservation(
+        userId: String, 
+        hotelId: String, 
+        checkInDate: String, 
+        checkOutDate: String, 
+        preferences: String
+    ): Reservation
+}
+
+type Reservation {
+    id: ID
+    userId: String
+    hotelId: String
+    checkInDate: String
+    checkOutDate: String
+    status: String
+    preferences: String
+}
